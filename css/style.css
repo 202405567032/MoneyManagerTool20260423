@@ -1,1 +1,574 @@
+/* ============================================
+   个人记账管理系统 - 全局样式
+   ============================================ */
 
+/* --- CSS 变量 --- */
+:root {
+  --primary: #4f6ef7;
+  --primary-hover: #3b5de7;
+  --danger: #e74c3c;
+  --danger-hover: #c0392b;
+  --success: #27ae60;
+  --warning: #f39c12;
+  --bg: #f4f6fb;
+  --card-bg: #ffffff;
+  --text: #333333;
+  --text-light: #888888;
+  --border: #e0e0e0;
+  --radius: 10px;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --max-width: 480px;
+}
+
+/* --- 重置 & 基础 --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- 容器 --- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+
+/* --- 卡片 --- */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px 20px;
+  margin-bottom: 16px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+/* --- 表单 --- */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 15px;
+  color: var(--text);
+  background: #fff;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 110, 247, 0.15);
+}
+
+.form-group .error-msg {
+  color: var(--danger);
+  font-size: 12px;
+  margin-top: 4px;
+  display: none;
+}
+
+.form-group.has-error input,
+.form-group.has-error select {
+  border-color: var(--danger);
+}
+
+.form-group.has-error .error-msg {
+  display: block;
+}
+
+/* --- 按钮 --- */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  text-align: center;
+  width: 100%;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: var(--danger-hover);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 13px;
+  width: auto;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+/* --- 导航栏 --- */
+.navbar {
+  background: var(--primary);
+  color: #fff;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar .nav-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.navbar .nav-user {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* --- 底部导航（Tab 栏） --- */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--card-bg);
+  border-top: 1px solid var(--border);
+  display: flex;
+  z-index: 100;
+}
+
+.tab-bar .tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0 8px;
+  font-size: 12px;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: color 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.tab-bar .tab-item .tab-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.tab-bar .tab-item.active {
+  color: var(--primary);
+}
+
+/* --- 页面内容区（为底部 Tab 留空间） --- */
+.page-content {
+  padding-bottom: 70px;
+}
+
+/* --- 表格 --- */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.data-table th,
+.data-table td {
+  padding: 10px 8px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.data-table th {
+  background: #f8f9fc;
+  font-weight: 600;
+  color: var(--text-light);
+  font-size: 13px;
+}
+
+.data-table tr:hover {
+  background: #f8f9fc;
+}
+
+/* --- 记录列表项 --- */
+.record-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.record-item:last-child {
+  border-bottom: none;
+}
+
+.record-info {
+  flex: 1;
+}
+
+.record-category {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.record-date {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+
+.record-remark {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+
+.record-amount {
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  margin-left: 12px;
+}
+
+.record-amount.expense {
+  color: var(--danger);
+}
+
+.record-amount.income {
+  color: var(--success);
+}
+
+.record-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: 12px;
+}
+
+/* --- 弹窗（Modal） --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s, visibility 0.25s;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(20px);
+  transition: transform 0.25s;
+}
+
+.modal-overlay.show .modal {
+  transform: translateY(0);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-header h3 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.modal-close {
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--text-light);
+  background: none;
+  border: none;
+  line-height: 1;
+}
+
+/* --- Toast 提示 --- */
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  background: #333;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 999;
+  transition: transform 0.3s;
+  white-space: nowrap;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast.success {
+  background: var(--success);
+}
+
+.toast.error {
+  background: var(--danger);
+}
+
+/* --- 空状态 --- */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-light);
+}
+
+.empty-state .empty-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.empty-state p {
+  font-size: 14px;
+}
+
+/* --- 类型切换（收入/支出） --- */
+.type-switch {
+  display: flex;
+  gap: 0;
+  margin-bottom: 16px;
+  background: #f0f2f8;
+  border-radius: 8px;
+  padding: 3px;
+}
+
+.type-switch .type-btn {
+  flex: 1;
+  padding: 8px;
+  text-align: center;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--text-light);
+  transition: all 0.2s;
+}
+
+.type-switch .type-btn.active {
+  background: var(--card-bg);
+  color: var(--text);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.type-switch .type-btn.active.expense-btn {
+  color: var(--danger);
+}
+
+.type-switch .type-btn.active.income-btn {
+  color: var(--success);
+}
+
+/* --- 统计卡片 --- */
+.stat-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.stat-card .stat-label {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+
+.stat-card .stat-value {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.stat-card .stat-value.expense {
+  color: var(--danger);
+}
+
+.stat-card .stat-value.income {
+  color: var(--success);
+}
+
+/* --- 辅助 --- */
+.text-center {
+  text-align: center;
+}
+
+.mt-8 {
+  margin-top: 8px;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mb-8 {
+  margin-bottom: 8px;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- 登录页特殊样式 --- */
+.auth-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.auth-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 36px 28px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.auth-card .auth-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.auth-card .auth-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 28px;
+}
+
+.auth-card .auth-switch {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+/* --- 响应式 --- */
+@media (max-width: 480px) {
+  .container {
+    padding: 16px 12px;
+  }
+
+  .card {
+    padding: 20px 16px;
+  }
+
+  .auth-card {
+    padding: 28px 20px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 8px 6px;
+    font-size: 13px;
+  }
+}
